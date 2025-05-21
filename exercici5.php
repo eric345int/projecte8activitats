@@ -1,10 +1,17 @@
+
 <?php
-// Aquest és un comentari de línia
-
-/*
-Aquest és un comentari
-de bloc que explica el codi següent
-*/
-
-echo "Aquest codi mostra un text amb comentaris.";
+if (isset($_POST['aficions'])) {
+    echo "<p>Aficions escollides:</p><ul>";
+    foreach ($_POST['aficions'] as $aficio) {
+        echo "<li>$aficio</li>";
+    }
+    echo "</ul>";
+}
 ?>
+<form method="post">
+    <p>Aficions:</p>
+    <label><input type="checkbox" name="aficions[]" value="Esport"> Esport</label>
+    <label><input type="checkbox" name="aficions[]" value="Lectura"> Lectura</label>
+    <label><input type="checkbox" name="aficions[]" value="Música"> Música</label><br>
+    <button type="submit">Enviar</button>
+</form>

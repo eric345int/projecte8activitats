@@ -1,11 +1,12 @@
 <?php
-$text = "Hola";
-$enter = 42;
-$decimal = 3.14;
-$boolea = true;
-
-var_dump($text);
-var_dump($enter);
-var_dump($decimal);
-var_dump($boolea);
+if (isset($_POST['genere'])) {
+    echo "<p>Gènere seleccionat: {$_POST['genere']}</p>";
+}
 ?>
+<form method="post">
+    <label><input type="radio" name="genere" value="Home"> Home</label>
+    <label><input type="radio" name="genere" value="Dona"> Dona</label>
+    <label><input type="radio" name="genere" value="Altres"> Altres</label>
+    <button type="submit">Enviar</button>
+</form>
+

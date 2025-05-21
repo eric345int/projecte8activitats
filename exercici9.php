@@ -1,11 +1,10 @@
 <?php
-$nom = "Anna";
-$edat = 25;
-$ciutat = "Girona";
+if (isset($_POST['comentari'])) {
+    $comentari = htmlspecialchars($_POST['comentari']);
+    echo "<p>Comentari rebut: $comentari</p>";
+}
 ?>
-
-<table border="1">
-    <tr><td>Nom</td><td><?php echo $nom; ?></td></tr>
-    <tr><td>Edat</td><td><?php echo $edat; ?></td></tr>
-    <tr><td>Ciutat</td><td><?php echo $ciutat; ?></td></tr>
-</table>
+<form method="post">
+    Comentari: <textarea name="comentari"></textarea>
+    <button type="submit">Enviar</button>
+</form>
