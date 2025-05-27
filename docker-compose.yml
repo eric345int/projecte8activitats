@@ -17,9 +17,9 @@ services:
     container_name: lamp_db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: exemple
-      MYSQL_USER: usuari
-      MYSQL_PASSWORD: contrasenya
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
 
@@ -29,7 +29,10 @@ services:
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
-      PMA_USER: usuari
-      PMA_PASSWORD: contrasenya
+      PMA_USER: root
+      PMA_PASSWORD: root
     ports:
       - "8081:80"
+
+volumes:
+ mysql_data:
